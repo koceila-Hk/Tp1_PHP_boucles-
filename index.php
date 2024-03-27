@@ -9,10 +9,6 @@
 // *****
 // ******
 
-// $et="*";
-// for ($i = 6; $i > 0; $i--) {
-//     echo str_repeat($et,$i) . "\n";
-// }
 
 for ($i = 0; $i < 6; $i++) {
     for ($j = 0; $j < $i; $j++) {
@@ -50,6 +46,37 @@ for ($i = 6; $i > 0; $i--) {
 // *  *
 // *   *
 // ******
+
+//////////// Switch
+
+for ($i = 0; $i <= 6; $i++) {
+    switch($i) {
+        case 0:
+            echo "*"."\n";
+            break;
+        case 1:
+            echo "**"."\n";
+            break;
+        case 2:
+            echo "* *"."\n";
+            break;
+        case 3:
+            echo "*  *"."\n";
+            break;
+        case 4:
+            echo "*   *"."\n";
+            break;
+        case 5:
+            echo "*    *"."\n";
+            break;
+        case 6:
+            echo "*******"."\n";
+            break;
+    }
+}
+
+///////////// if .... else
+
 for ($i = 0; $i < 6; $i++) {
     if($i==0){
         echo "*"."\n";
@@ -81,21 +108,17 @@ for ($i = 0; $i < 6; $i++) {
 // 4/ Ecrire une fonction qui calcule la factorielle d'un nombre.
 // Exemple d'utilisation : echo factorielle(7);
 
-
-function fac($a){
-    if($a < 0){
-        echo "non non non";
-}elseif($a === 0){
-    echo 1;
-}else{
-    $acc=1;
-    for ($i = 1; $i <= $a; $i++) {
-        $acc = $acc * $i;
+function fac($nb) {
+    if ($nb < 0) {
+        echo "nb inférieure";
+    } else {
+        $acc = 1;
+        for ($i = 1; $i <= $nb; $i++) {
+            $acc = $acc * $i;
+        }
+        echo $acc;
     }
-    echo $acc;
 }
-}
-
 fac(7);
 
 
@@ -104,16 +127,33 @@ fac(7);
 // 5/ Ecrire une fonction qui prend deux tableaux et renvoie un 3e tableau, 
 // qui contient dans chacune de ses cases la somme des cases correspondantes des deux premiers tableaux.
 
-// Par exemple : [1, 2, 3] et [4, 5, 6] ===> [(1+4), (2+5), (3+6)] ===> [5, 7, 9]
 
-// Exemple d'utilisation : 
-// 	print_r(
-// 		somme_tableaux(
-//         	[1, 2, 3], 
-//         	[4, 5, 6]
-//         )
-// 	);
-    
+/////////// Boucle for
+
+// function sumTable($stTable, $ndTable) {
+//     $length = count($stTable);
+//     for ($i = 0; $i < $length; $i++) {
+//         $result[] = $stTable[$i] + $ndTable[$i];
+//     }
+//     return $result;
+// }
+
+// print_r(sumTable([2,3,4], [3,4,2]));
+
+
+//////////// Boucle while
+function sumTable($stTable, $ndTable) {
+    $length = count($stTable);
+    $i = 0;
+    while ($i < $length) {
+        $result[] = $stTable[$i] + $ndTable[$i];
+        $i += 1;
+    }
+    return $result;
+}
+print_r(sumTable([3,5,5,8], [3,4,2,9]));
+
+
 //                 -------------------------------  
 
 // 6/ Ecrivez une fonction qui prend un tableau (en 2 dimensions) et renvoie la position du trésor.
@@ -122,6 +162,8 @@ fac(7);
 // Pour tester, voici de quoi créer un tableau avec un trésor aléatoire : 
 // $tableau = array_fill(0, 10, array_fill(0, 10, false));
 // $tableau[rand(0, 9)][rand(0, 9)] = true;
+
+
 
 //             -------------------------------  
 
